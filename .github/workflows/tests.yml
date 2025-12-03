@@ -41,6 +41,7 @@ jobs:
         run: |
           mkdir -p allure-report
           docker cp test-container:/app/allure-report ./allure-report
+          docker rm test-container
 
       # ---------------------------
       # 5. Upload generated Allure HTML report
@@ -50,3 +51,13 @@ jobs:
         with:
           name: allure-report
           path: allure-report
+
+      # ---------------------------
+      # 6. Deploy Allure report to GitHub Pages
+      # ---------------------------
+      - name: Deploy Allure report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./allure-report
+          publish_branch: gh-pages

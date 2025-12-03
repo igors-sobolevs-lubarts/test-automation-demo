@@ -21,6 +21,6 @@ public class WebTest extends BaseWebTest {
     public void webSearchMadeToFailTest() {
         driver.get(webBaseUrl);
         driver.findElement(By.name("q")).sendKeys("TestNG\n");
-        Assert.assertFalse(driver.getPageSource().contains("TestNG"));
+        Assert.assertFalse(true, "Expected test to fail");
     }
 }

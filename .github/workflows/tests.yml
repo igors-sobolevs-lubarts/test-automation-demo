@@ -29,13 +29,8 @@ jobs:
       # 3. Run tests inside Docker
       # ---------------------------
       - name: Run tests with Docker (UI + API tests)
-        env:
-          WEB_BASE_URL: ${{ secrets.WEB_BASE_URL }}
-          API_BASE_URL: ${{ secrets.API_BASE_URL }}
         run: |
           docker run \
-            -e WEB_BASE_URL="${WEB_BASE_URL}" \
-            -e API_BASE_URL="${API_BASE_URL}" \
             --name test-container \
             test-automation-demo
 

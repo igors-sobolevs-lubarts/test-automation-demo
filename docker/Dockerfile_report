@@ -1,0 +1,17 @@
+# ==========================
+# Simple HTTP server for Allure report
+# ==========================
+
+FROM python:3.12-alpine
+
+# Install a tiny HTTP server (already included in Python)
+WORKDIR /report
+
+# The container expects the host to mount:
+#   -v ./allure-report:/report
+#
+# Then index.html becomes available for serving.
+
+EXPOSE 8080
+
+CMD ["python3", "-m", "http.server", "8080"]

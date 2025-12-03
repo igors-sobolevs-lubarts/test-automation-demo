@@ -1,0 +1,57 @@
+name: Run Automated Tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # ---------------------------
+      # 1. Checkout project
+      # ---------------------------
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ---------------------------
+      # 2. Build Docker image
+      # ---------------------------
+      - name: Build test automation image
+        run: docker build -t test-automation-demo -f docker/Dockerfile .
+
+      # ---------------------------
+      # 3. Run tests inside Docker
+      # ---------------------------
+      - name: Run tests with Docker (UI + API tests)
+        env:
+          WEB_BASE_URL: ${{ secrets.WEB_BASE_URL }}
+          API_BASE_URL: ${{ secrets.API_BASE_URL }}
+        run: |
+          docker run \
+            -e WEB_BASE_URL="${WEB_BASE_URL}" \
+            -e API_BASE_URL="${API_BASE_URL}" \
+            --name test-container \
+            test-automation-demo
+
+      # ---------------------------
+      # 4. Copy Allure HTML report from container
+      # ---------------------------
+      - name: Copy Allure results from Docker container
+        run: |
+          mkdir -p allure-report
+          docker cp test-container:/app/allure-report ./allure-report
+
+      # ---------------------------
+      # 5. Upload generated Allure HTML report
+      # ---------------------------
+      - name: Upload Allure HTML report
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report

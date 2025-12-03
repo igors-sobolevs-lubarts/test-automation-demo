@@ -13,6 +13,9 @@ This demo is a proof-of-concept for a test automation framework that uses Maven,
 - `WEB_BASE_URL` - e.g. https://www.google.com
 - `BROWSER` - e.g. chrome
 
+## Report
+Latest Allure report demo created by GitHub Actions is published to: https://igors-sobolevs-lubarts.github.io/test-automation-demo/allure-report/
+
 ## Local (Maven) run
 ```bash
 export API_BASE_URL="https://restful-booker.herokuapp.com"

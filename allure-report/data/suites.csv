@@ -1,0 +1,7 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"failed","Wed Dec 03 16:22:25 UTC 2025","Wed Dec 03 16:22:25 UTC 2025","148","Automation Suite","API Tests","api.ApiTest","api.ApiTest","madeToFailTest","madeToFailTest",""
+"passed","Wed Dec 03 16:22:25 UTC 2025","Wed Dec 03 16:22:25 UTC 2025","140","Automation Suite","API Tests","api.ApiTest","api.ApiTest","bookingGetIdTest","bookingGetIdTest",""
+"passed","Wed Dec 03 16:22:24 UTC 2025","Wed Dec 03 16:22:25 UTC 2025","767","Automation Suite","API Tests","api.ApiTest","api.ApiTest","bookingPostTest","bookingPostTest",""
+"passed","Wed Dec 03 16:22:25 UTC 2025","Wed Dec 03 16:22:25 UTC 2025","281","Automation Suite","API Tests","api.ApiTest","api.ApiTest","bookingGetTest","bookingGetTest",""
+"passed","Wed Dec 03 16:22:28 UTC 2025","Wed Dec 03 16:22:29 UTC 2025","1052","Automation Suite","WEB UI Tests","web.WebTest","web.WebTest","webSearchMadeToFailTest","webSearchMadeToFailTest",""
+"passed","Wed Dec 03 16:22:27 UTC 2025","Wed Dec 03 16:22:27 UTC 2025","456","Automation Suite","WEB UI Tests","web.WebTest","web.WebTest","webPageOpenTest","webPageOpenTest",""

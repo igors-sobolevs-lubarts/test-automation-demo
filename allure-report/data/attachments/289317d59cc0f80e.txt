@@ -1,0 +1,4 @@
+Method: POST
+URL: booking/1087
+--- Body ---
+{firstname=John, additionalneeds=Early checkin, bookingdates={checkin=2025-12-03, checkout=2025-12-04}, totalprice=123, depositpaid=true, lastname=Smith}
